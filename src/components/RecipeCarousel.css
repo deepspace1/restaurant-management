@@ -1,0 +1,151 @@
+.recipe-carousel-container {
+  width: 100%;
+  /* Increase max-width significantly for larger screens */
+  max-width: 1100px; /* Adjusted from 950px */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: #fff;
+  flex-grow: 1; /* Keep allowing it to grow vertically */
+  min-height: 0; /* Keep for flexbox */
+  display: flex; /* Make container flex to center details better */
+  flex-direction: column; /* Stack carousel images and details */
+  justify-content: center; /* Center the content vertically */
+}
+
+.recipe-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Reduce bottom margin, spacing handled by parent flex */
+  margin-bottom: 3vh; /* Use vh */
+  width: 100%; /* Ensure it takes full width of container */
+}
+
+.carousel-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Increase gap slightly */
+  gap: 25px; /* Adjusted from 20px */
+  flex-grow: 1;
+  padding: 0 15px; /* Slightly increased padding */
+  perspective: 1000px;
+  min-height: 25vh; /* Use vh for minimum height */
+}
+
+.carousel-card {
+  /* Adjust width calculation for the increased gap */
+  flex: 0 0 calc(33.333% - 18px); /* Adjusted calculation */
+  max-width: calc(33.333% - 18px); /* Adjusted calculation */
+  box-sizing: border-box;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.6;
+  transform: scale(0.85);
+  border-radius: 10px; /* Slightly larger radius */
+  overflow: hidden;
+  background-color: #333;
+  /* Add aspect-ratio for responsive height based on width */
+  aspect-ratio: 16 / 10; /* Common aspect ratio (adjust if needed) */
+}
+
+.carousel-card.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+}
+
+.carousel-card.placeholder {
+  background-color: #2a2a2a; /* Darker placeholder */
+  /* Ensure placeholder also respects aspect ratio */
+  aspect-ratio: 16 / 10;
+  min-height: auto; /* Remove fixed min-height */
+}
+
+.carousel-card img {
+  display: block;
+  width: 100%;
+  /* --- Remove fixed height --- */
+  /* height: 180px; */
+  /* --- Use 100% height to fill the aspect-ratio container --- */
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-arrow {
+  background-color: rgba(40, 40, 40, 0.7); /* Slightly more opaque */
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* More visible border */
+  border-radius: 50%;
+  /* Slightly larger arrows */
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(70, 70, 70, 0.9);
+  transform: scale(1.1);
+}
+
+.prev-arrow {
+  margin-right: 15px; /* Adjusted space */
+}
+
+.next-arrow {
+  margin-left: 15px; /* Adjusted space */
+}
+
+
+.recipe-details {
+  text-align: center;
+  /* Remove top margin, handled by parent flexbox spacing */
+  /* margin-top: 3vh; */
+  padding: 0 5%;
+  flex-shrink: 0; /* Keep */
+  width: 100%; /* Ensure it takes full width */
+  max-width: 700px; /* Increase max width for details */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recipe-details h3 {
+  font-family: 'Oswald', sans-serif;
+   /* Slightly larger title */
+  font-size: 2.2rem; /* Adjusted */
+  margin-bottom: 15px; /* Adjusted */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Adjusted */
+}
+
+.recipe-details p {
+  font-size: 1.1rem; /* Adjusted */
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 25px; /* Adjusted */
+}
+
+.discover-link {
+  display: inline-block;
+  color: #fff;
+  font-size: 1rem; /* Adjusted */
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  transition: color 0.2s ease;
+  padding: 8px 0; /* Adjusted padding */
+}
+
+.discover-link:hover {
+  color: #f0ad4e;
+}

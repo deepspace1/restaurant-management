@@ -1,0 +1,38 @@
+/* src/App.css or src/index.css */
+
+/* Import Fonts (Example - place at the top) */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;700&display=swap');
+
+/* --- Crucial Fullscreen Setup --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure html and body can take full height */
+  width: 100%;
+  overflow: hidden; /* Prevent body scrolling */
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1a1a; /* Fallback background */
+  color: #f0f0f0;
+}
+
+#root { /* Or your main app root element */
+  height: 100%;
+  width: 100%;
+}
+/* -------------------------------- */
+
+
+.App {
+  /* Ensure App container also fills height if needed */
+  height: 100%;
+  width: 100%;
+  /* display: flex; /* Optional: if App itself needs flex layout */
+  /* flex-direction: column; /* Optional */
+}
+
+/* Basic Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}

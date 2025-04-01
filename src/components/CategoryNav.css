@@ -1,0 +1,104 @@
+/* Container for scrollable navigation */
+.scrollable-nav.fading-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+  padding: 20px 30px; /* Adjust padding to allow partial visibility */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar { display: none; }
+
+  /* Fading edge effect */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.category-item {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem; /* Default font size */
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 0 20px; /* Add padding for spacing */
+  text-align: center;
+}
+
+.category-item.active {
+  font-size: 3rem; /* Larger font size for active category */
+  color: #fff;
+  font-weight: 700;
+  transform: scale(1.05); /* Slightly enlarge */
+}
+
+/* Background ruler line */
+.nav-ruler-line {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #555;
+  z-index: 0;
+}
+
+/* Mask element */
+.nav-mask {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 5px;
+  background-color: #1a1a1a; /* Match your page background */
+  z-index: 1;
+  transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Indicator element */
+.nav-indicator {
+  position: absolute;
+  bottom: 10px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  z-index: 2;
+  transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Handle opacity transitions based on inline styles */
+.nav-mask[style*="opacity: 1"],
+.nav-indicator[style*="opacity: 1"] {
+  opacity: 1;
+}

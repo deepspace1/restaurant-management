@@ -1,0 +1,79 @@
+.recipe-showcase {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 0.8s ease-in-out;
+  }
+  
+  /* Overlay (no changes needed) */
+  .recipe-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+    transition: background-color 0.8s ease-in-out;
+  }
+  
+  /* Content Wrapper */
+  .recipe-showcase-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1200px; /* Keep max width */
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      /* Adjust vertical padding slightly */
+      padding-top: 5vh; /* Increased top padding */
+      padding-bottom: 10vh; /* Increased bottom padding */
+      /* Distribute space: give more to carousel, less fixed to top/bottom */
+      justify-content: space-between; /* Try this instead of centering everything */
+  }
+  
+  /* Category Nav */
+  .category-nav {
+      flex-shrink: 0;
+      /* Reduce bottom margin as space-between will handle spacing */
+      margin-bottom: 0; /* Removed margin */
+      padding-left: 5%;
+      padding-right: 5%;
+      width: 100%; /* Ensure it spans width */
+      max-width: 1200px; /* Match content max-width */
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  /* Carousel Container */
+  .recipe-carousel-container {
+      /* flex-grow: 1; */ /* Let space-between handle distribution */
+      min-height: 0;
+      width: 100%;
+      /* max-width: 1100px; */ /* Max-width is set inside this component's CSS now */
+      margin-left: auto;
+      margin-right: auto;
+      display: flex; /* Already set in its own CSS */
+      flex-direction: column; /* Already set in its own CSS */
+      justify-content: center; /* Already set in its own CSS */
+      /* Add some vertical margin if needed with space-between */
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+  }
+  
+  /* Footer Text */
+  .footer-text {
+      position: absolute;
+      bottom: 3vh; /* Adjusted position slightly */
+      right: 40px; /* Adjusted position slightly */
+      color: #ccc;
+      font-size: 0.8rem;
+      z-index: 3;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+  }
